@@ -81,3 +81,69 @@ select {
     scroll-behavior: initial;
   }
 }
+
+.scroller {
+  max-width: max(300px, 50vw);
+}
+
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.scroller[data-animated='true'] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated='true'] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 80s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+/* general styles */
+
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  font-size: min(20px, 3.5vw);
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  outline: 3px solid #875ffa;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
+}
+
+/* for testing purposed to ensure the animation lined up correctly */
+.test {
+  background: red !important;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+
+.sub-heading {
+  font-size: clamp(1rem, 1.5vw, 2rem);
+}

@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Navbar } from 'components';
+import { HeroSection, Navbar, SkillSetCarousel } from 'components';
 
 function App() {
   return (
-    <div>
+    <div className="h-full w-full">
       <Navbar />
+      <HeroSection />
+      <SkillSetCarousel />
     </div>
   );
 }

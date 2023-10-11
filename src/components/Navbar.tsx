@@ -4,28 +4,40 @@ const Navbar: FC = () => {
   const getCurrentTheme = () =>
     document.documentElement.getAttribute('data-theme');
 
-  const [isDarkMode, setIsDarkMode] = useState(
-    getCurrentTheme() === 'myDarkTheme',
-  );
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const currentTheme = getCurrentTheme();
+
+    if (!currentTheme) {
+      const _isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+
+      document.documentElement.setAttribute(
+        'data-theme',
+        _isDarkMode ? 'myDarkTheme' : 'myLightTheme',
+      );
+    }
+
+    return currentTheme === 'myDarkTheme';
+  });
 
   const handleToggleTheme = () => {
     const currentTheme = getCurrentTheme();
 
     if (currentTheme === 'myLightTheme') {
       setIsDarkMode(true);
+      localStorage.setItem('isDarkMode', 'true');
       document.documentElement.setAttribute('data-theme', 'myDarkTheme');
     } else {
       setIsDarkMode(false);
+      localStorage.setItem('isDarkMode', 'false');
       document.documentElement.setAttribute('data-theme', 'myLightTheme');
     }
   };
 
   return (
-    <header className="navbar bg-base-100 p-2 md:p-10 items-center">
-      <div className="flex-1">
+    <header className="navbar p-5 md:p-20 items-center">
+      <div className="flex-1 scale-50 md:scale-100">
         <a href="/">
           <svg
-            className="btn btn-ghost btn-lg md:btn-lg"
             width="315"
             height="80"
             viewBox="0 0 315 80"
@@ -43,8 +55,8 @@ const Navbar: FC = () => {
                 x2="-24"
                 y2="40"
                 gradientUnits="userSpaceOnUse">
-                <stop stop-color="#EF3AFF" />
-                <stop offset="1" stop-color="#875FFA" />
+                <stop stopColor="#EF3AFF" />
+                <stop offset="1" stopColor="#875FFA" />
               </linearGradient>
             </defs>
           </svg>
@@ -70,29 +82,37 @@ const Navbar: FC = () => {
         </div>
 
         <div className="flex-none">
-          <button
-            className="btn btn-square btn-ghost relative"
-            onClick={handleToggleTheme}>
-            <svg
-              id="lightMode"
-              width="30"
-              height="30"
-              viewBox="0 0 55 55"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              {isDarkMode ? (
+          <button className="btn btn-square btn-ghost relative">
+            <label className="swap swap-rotate">
+              {/* this hidden checkbox controls the state */}
+              <input
+                type="checkbox"
+                defaultChecked={!isDarkMode}
+                onChange={handleToggleTheme}
+              />
+
+              {/* sun icon */}
+              <svg
+                className="swap-on fill-current w-10 h-10"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
                 <path
                   fill="#FFC700"
-                  className="scale-[250%] translate-x-3 translate-y-2"
-                  d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"
+                  d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
                 />
-              ) : (
+              </svg>
+
+              {/* moon icon */}
+              <svg
+                className="swap-off fill-current w-10 h-10"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
                 <path
-                  d="M55 27.5C55 42.6878 42.6878 55 27.5 55C12.3122 55 0 42.6878 0 27.5C0 12.3122 12.3122 0 27.5 0C42.6878 0 55 12.3122 55 27.5Z"
                   fill="#FFC700"
+                  d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
                 />
-              )}
-            </svg>
+              </svg>
+            </label>
           </button>
         </div>
       </div>
