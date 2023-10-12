@@ -5,7 +5,7 @@ import { OrbitControls } from '@react-three/drei';
 
 const HeroSection: FC = () => {
   return (
-    <section className="p-5 md:p-20 flex gap-10 flex-wrap items-center relative">
+    <div className="flex flex-1 flex-wrap items-center gap-10 relative">
       <div className="max-w-max md:max-w-min">
         <h1 className="heading whitespace-pre leading-tight font-semibold text-center">
           Software Engineer
@@ -41,7 +41,7 @@ const HeroSection: FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -144,6 +144,10 @@ select {
   font-size: clamp(2rem, 5vw, 5rem);
 }
 
+.heading-2 {
+  font-size: clamp(1.5rem, 3vw, 5rem);
+}
+
 .sub-heading {
   font-size: clamp(1rem, 1.5vw, 2rem);
 }
