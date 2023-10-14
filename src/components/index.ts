@@ -3,4 +3,7 @@ export { default as AboutMe } from './AboutMe';
 export { default as Projects } from './Projects';
 export { default as Articles } from './Articles';
 export { default as HeroSection } from './HeroSection';
+export { default as OpenQuoteSvg } from './OpenQuoteSvg';
+export { default as CloseQuoteSvg } from './CloseQuoteSvg';
+export { default as Recommendations } from './Recommendations';
 export { default as SkillSetCarousel } from './SkillSetCarousel';

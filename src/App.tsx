@@ -6,6 +6,7 @@ import {
   Projects,
   Articles,
   HeroSection,
+  Recommendations,
   SkillSetCarousel,
 } from 'components';
 
@@ -33,14 +34,14 @@ const App: FC = () => {
           className={`bg-[#875FFA70] absolute top-[5%] left-[15%] w-[10vw] h-[10vw] rounded-full blur-3xl z-[-1]`}
         />
         <div
-          className={`bg-[#3ABFF860] absolute top-[10%] right-[-5%] w-[20vw] h-[20vw] rounded-full blur-3xl z-[-1]`}
+          className={`bg-[#db277760] absolute top-[10%] right-[-5%] w-[20vw] h-[20vw] rounded-full blur-3xl z-[-1]`}
         />
         <div
-          className={`bg-[#db277760] absolute top-[75%] left-[-3%] w-[25vw] h-[25vw] rounded-full blur-3xl z-[-1]`}
+          className={`bg-[#1FB2A580] absolute top-[55%] right-[20%] w-[15vw] h-[15vw] rounded-full blur-3xl z-[-1]`}
         />
-        <div
-          className={`bg-[#1FB2A580] absolute top-[65%] right-[20%] w-[15vw] h-[15vw] rounded-full blur-3xl z-[-1]`}
-        />
+      </section>
+      <section className="min-h-full md:min-h-screen p-5 md:p-20 py-[100px] flex flex-col gap-5 items-center justify-center relative">
+        <Recommendations />
       </section>
     </div>
   );
