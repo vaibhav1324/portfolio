@@ -20,7 +20,7 @@ const ITEMS = [
     title: 'Operation/Project Manager',
     message:
       "Having had the privilege of working closely with Vaibhav for two years, I wholeheartedly recommend him as an exceptional developer. Vaibhav's technical prowess, combined with his proactivity, sets him apart in his field. He has an impressive ability to absorb new knowledge, is an excellent collaborator, and consistently brings creativity and innovation to every project. With his help, our team successfully delivered multiple MVPs, and his proactive approach not only streamlined processes but also significantly contributed to productivity. If you're seeking a dedicated, intelligent, and creative developer who consistently exceeds expectations, Vaibhav is the ideal candidate for your team.",
-    color: 'primary',
+    color: '#875FFA',
     url: 'https://www.linkedin.com/in/gast%C3%B3n-marc%C3%B3-127b93129/',
   },
   {
@@ -30,13 +30,13 @@ const ITEMS = [
       'Lead Designer | User Experience, User Interface | Illustrator & Prompt Designer',
     message:
       "Working closely with Vaibhav has been an exceptional experience. Vaibhav's outstanding skills in Front-End development not only afford me creative freedom as a UX/UI designer but also ensure the delivery of top-notch quality work. Beyond the professional realm, Vaibhav is a beautiful person to collaborate with, making our projects enjoyable and our teamwork highly effective. His proactive approach to improving processes and unwavering dedication to enhancing our projects make him an invaluable asset to any team.",
-    color: 'secondary',
+    color: '#db2777',
     url: 'https://www.linkedin.com/in/valseville/',
   },
 ];
 
 const Recommendations: FC = () => {
-  const [index, setIndex] = useState<0 | 1>(1);
+  const [index, setIndex] = useState<0 | 1>(0);
 
   const currentItem = ITEMS[index];
 
@@ -59,7 +59,8 @@ const Recommendations: FC = () => {
         <motion.div
           key={currentItem.name}
           {...itemAnimationConfig}
-          className={`card w-full min-h-[350px] max-w-[1000px] rounded-xl bg-${currentItem.color} shadow-lg`}>
+          className={`card w-full min-h-[350px] max-w-[1000px] rounded-xl shadow-lg`}
+          style={{ backgroundColor: currentItem.color }}>
           <div className="card-body flex flex-row gap-10 flex-wrap">
             <div className="flex flex-1 items-center justify-center relative">
               <div className="avatar">

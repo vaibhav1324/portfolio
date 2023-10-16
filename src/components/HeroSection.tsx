@@ -14,6 +14,7 @@ const HeroSection: FC = () => {
           I channel my critical thinking skills into crafting seamless digital
           experiences that not only look good but function flawlessly.
         </p>
+        <button className="mt-6 btn btn-primary">Contact me</button>
       </div>
       <div
         className={`bg-[#3ABFF860] absolute top-0 left-[10%] w-[5vw] h-[5vw] rounded blur-xl z-[-1]`}
@@ -26,19 +27,17 @@ const HeroSection: FC = () => {
       />
 
       <div className="flex flex-1 justify-center items-center">
-        <div className="avatar">
-          <div className="w-62 rounded">
-            <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
-              <ambientLight intensity={0.1} />
-              <directionalLight color="red" position={[0, 0, 5]} />
+        <div className="w-62 h-[300px] rounded">
+          <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
+            <ambientLight intensity={0.1} />
+            <directionalLight color="red" position={[0, 0, 5]} />
 
-              <OrbitControls makeDefault autoRotate autoRotateSpeed={5} />
-              <mesh>
-                <boxGeometry />
-                <meshNormalMaterial />
-              </mesh>
-            </Canvas>
-          </div>
+            <OrbitControls makeDefault autoRotate autoRotateSpeed={5} />
+            <mesh>
+              <boxGeometry />
+              <meshNormalMaterial />
+            </mesh>
+          </Canvas>
         </div>
       </div>
     </div>
