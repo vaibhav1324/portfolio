@@ -13,7 +13,7 @@ import {
 const App: FC = () => {
   return (
     <div className="h-full w-full">
-      <section className="p-5 md:p-20 h-[92vh] flex gap-10 flex-wrap">
+      <section className="p-5 md:p-20 min-h-[92vh] flex gap-10 flex-wrap">
         <Navbar />
         <HeroSection />
         <SkillSetCarousel />
@@ -23,9 +23,9 @@ const App: FC = () => {
         <AboutMe />
       </section>
 
-      <section className="min-h-[100vh] py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden">
         <p className="text-center heading-2">Check out my work</p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 relative">
           <Articles />
           <Projects />
         </div>

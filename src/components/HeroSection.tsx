@@ -14,7 +14,9 @@ const HeroSection: FC = () => {
           I channel my critical thinking skills into crafting seamless digital
           experiences that not only look good but function flawlessly.
         </p>
-        <button className="mt-6 btn btn-primary">Contact me</button>
+        <div className="w-full grid place-items-center md:place-items-start">
+          <button className="mt-6 btn btn-primary">Contact me</button>
+        </div>
       </div>
       <div
         className={`bg-[#3ABFF860] absolute top-0 left-[10%] w-[5vw] h-[5vw] rounded blur-xl z-[-1]`}
