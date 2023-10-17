@@ -10,13 +10,13 @@ const PROJECTS = [
   },
   {
     id: 'project-card-2',
-    url: 'https://vaibhav1324.github.io/melodoodle/',
-    title: 'MeloDoodle - Create Music (WIP)',
+    url: 'https://vaibhav1324.github.io/cosmic-wonder/',
+    title: 'Cosmic Wonder - Explore the Universe (WIP)',
   },
   {
     id: 'project-card-3',
-    url: 'https://vaibhav1324.github.io/cosmic-wonder/',
-    title: 'Cosmic Wonder - Explore the Universe (WIP)',
+    url: 'https://vaibhav1324.github.io/melodoodle/',
+    title: 'MeloDoodle - Create Music (WIP)',
   },
   {
     id: 'project-card-4',
