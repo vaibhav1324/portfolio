@@ -3,6 +3,8 @@ import { FC } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
+import ContactMe from './ContactMe';
+
 const HeroSection: FC = () => {
   return (
     <div className="flex flex-1 flex-wrap items-center gap-10 relative">
@@ -15,7 +17,7 @@ const HeroSection: FC = () => {
           experiences that not only look good but function flawlessly.
         </p>
         <div className="w-full grid place-items-center md:place-items-start">
-          <button className="mt-6 btn btn-primary">Contact me</button>
+          <ContactMe />
         </div>
       </div>
       <div
