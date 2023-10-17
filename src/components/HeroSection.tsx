@@ -1,9 +1,8 @@
 import { FC } from 'react';
 
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-
 import ContactMe from './ContactMe';
+
+import vaibhav from '../assets/vaibhav-profile.jpg';
 
 const HeroSection: FC = () => {
   return (
@@ -31,17 +30,8 @@ const HeroSection: FC = () => {
       />
 
       <div className="flex flex-1 justify-center items-center">
-        <div className="w-62 h-[300px] rounded">
-          <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
-            <ambientLight intensity={0.1} />
-            <directionalLight color="red" position={[0, 0, 5]} />
-
-            <OrbitControls makeDefault autoRotate autoRotateSpeed={5} />
-            <mesh>
-              <boxGeometry />
-              <meshNormalMaterial />
-            </mesh>
-          </Canvas>
+        <div className="w-[180px] md:w-[300px] h-[180px] md:h-[300px] rounded-full bg-white overflow-hidden">
+          <img src={vaibhav} alt="vaibhav" className="rounded object-cover" />
         </div>
       </div>
     </div>
