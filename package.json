@@ -12,7 +12,8 @@
     "check:types": "tsc",
     "prepare": "husky install",
     "commit": "cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "deploy": "yarn build && firebase deploy"
   },
   "dependencies": {
     "framer-motion": "^10.16.4",
