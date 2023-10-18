@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 
+import { motion } from 'framer-motion';
+
 import {
   Navbar,
+  Loading,
   AboutMe,
   Projects,
   Articles,
@@ -12,7 +15,11 @@ import {
 
 const App: FC = () => {
   return (
-    <div className="h-full w-full">
+    <motion.div
+      className="h-full w-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.25, type: 'just', ease: 'easeIn' }}>
       <section className="p-5 md:p-20 min-h-[92vh] flex gap-10 flex-wrap">
         <Navbar />
         <HeroSection />
@@ -43,7 +50,9 @@ const App: FC = () => {
       <section className="min-h-full md:min-h-screen p-5 md:p-20 py-[100px] flex flex-col gap-5 items-center justify-center relative">
         <Recommendations />
       </section>
-    </div>
+
+      <Loading />
+    </motion.div>
   );
 };
 
