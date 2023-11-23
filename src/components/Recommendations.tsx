@@ -1,6 +1,7 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import val from '../assets/val.jpeg';
+import jaine from '../assets/jaine.jpeg';
 import gaston from '../assets/gaston.jpeg';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -33,12 +34,51 @@ const ITEMS = [
     color: '#db2777',
     url: 'https://www.linkedin.com/in/valseville/',
   },
+  {
+    name: 'Jaine Santos',
+    img: jaine,
+    title:
+      'Software Developer | Front-end | React | React native | JavaScript | TypeScript',
+    message:
+      "Working with Vaibhav has been a consistent source of inspiration, I'm impressed by his dedication to quality and his lightning-fast work ethic. He's a hands-on colleague who's always ready to go the extra mile, and his kind and helpful nature has made our collaboration an incredible learning experience, he is a fantastic mentor. Vaibhav's development skills are exceptional, with a particular strength in React JS. I wholeheartedly recommend him as a valuable asset to any team.",
+    color: '#1FB2A5',
+    url: 'https://www.linkedin.com/in/jaine-santos-a39283147/',
+  },
 ];
 
 const Recommendations: FC = () => {
-  const [index, setIndex] = useState<0 | 1>(0);
+  const [index, setIndex] = useState<0 | 1 | 2>(0);
+  const intervalRef = useRef<NodeJS.Timer | null>(null);
 
   const currentItem = ITEMS[index];
+
+  const handleSetInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = setInterval(() => {
+      setIndex((prev) => {
+        const next = prev + 1;
+
+        if (next > 2) {
+          return 0;
+        }
+
+        return next as typeof prev;
+      });
+    }, 15000);
+  };
+
+  useEffect(() => {
+    handleSetInterval();
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -104,6 +144,8 @@ const Recommendations: FC = () => {
         <div
           onClick={() => {
             setIndex(0);
+
+            handleSetInterval();
           }}
           className={`h-8 w-8 grid place-items-center bg-white rounded-full cursor-pointer outline outline-4 outline-black ${
             index === 0 ? 'opacity-100' : 'opacity-50'
@@ -113,11 +155,24 @@ const Recommendations: FC = () => {
         <div
           onClick={() => {
             setIndex(1);
+
+            handleSetInterval();
           }}
           className={`h-8 w-8 grid place-items-center bg-white rounded-full cursor-pointer outline outline-4 outline-black ${
             index === 1 ? 'opacity-100' : 'opacity-50'
           }`}>
           2
+        </div>
+        <div
+          onClick={() => {
+            setIndex(2);
+
+            handleSetInterval();
+          }}
+          className={`h-8 w-8 grid place-items-center bg-white rounded-full cursor-pointer outline outline-4 outline-black ${
+            index === 2 ? 'opacity-100' : 'opacity-50'
+          }`}>
+          3
         </div>
       </div>
     </>

@@ -49,7 +49,7 @@ const SkillSetCarousel: FC = () => {
 
   return (
     <div className="px-2 md:px-20 flex flex-1 items-center justify-center">
-      <div className="scroller" data-speed="slow">
+      <div className="scroller">
         <ul className="tag-list scroller__inner">
           {SKILLS.map((skill) => (
             <li key={skill}>{skill}</li>

@@ -83,7 +83,7 @@ select {
 }
 
 .scroller {
-  max-width: max(300px, 50vw);
+  max-width: max(300px, 70vw);
 }
 
 .scroller__inner {
@@ -108,7 +108,7 @@ select {
 .scroller[data-animated='true'] .scroller__inner {
   width: max-content;
   flex-wrap: nowrap;
-  animation: scroll var(--_animation-duration, 80s)
+  animation: scroll var(--_animation-duration, 24s)
     var(--_animation-direction, forwards) linear infinite;
 }
 
@@ -127,7 +127,7 @@ select {
 }
 
 .tag-list li {
-  font-size: min(20px, 3.5vw);
+  font-size: min(14px, 3vw);
   font-weight: bold;
   padding: 1rem 1.5rem;
   outline: 3px solid #875ffa;
